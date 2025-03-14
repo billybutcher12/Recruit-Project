@@ -162,9 +162,27 @@ export default function RecruitmentPage() {
                             {job.postedDate}
                           </span>
                         </div>
-                        <p className="text-muted-foreground mb-4">
+                        <p className="text-muted-foreground mb-2">
                           {job.description}
                         </p>
+                        <div className="border-t border-blue-100 my-3 pt-3">
+                          <h4 className="text-sm font-semibold text-blue-600 mb-2">
+                            Yêu cầu:
+                          </h4>
+                          <ul className="text-sm text-gray-600 list-disc pl-5 mb-3 space-y-1">
+                            <li>Tối thiểu 2 năm kinh nghiệm</li>
+                            <li>Kỹ năng giao tiếp tốt</li>
+                            <li>Khả năng làm việc nhóm</li>
+                          </ul>
+                          <h4 className="text-sm font-semibold text-blue-600 mb-2">
+                            Quyền lợi:
+                          </h4>
+                          <ul className="text-sm text-gray-600 list-disc pl-5 mb-3 space-y-1">
+                            <li>Lương thưởng cạnh tranh</li>
+                            <li>Chế độ bảo hiểm đầy đủ</li>
+                            <li>Môi trường làm việc năng động</li>
+                          </ul>
+                        </div>
                         <div className="flex flex-wrap gap-3 mb-4 text-sm text-gray-600">
                           <div className="flex items-center">
                             <MapPin size={14} className="mr-1 text-blue-500" />
@@ -178,12 +196,17 @@ export default function RecruitmentPage() {
                             {job.type}
                           </div>
                         </div>
-                        <Button
-                          asChild
-                          className="w-full bg-blue-600 hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg"
+                        <motion.div
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
                         >
-                          <Link to={`/apply/${job.id}`}>Ứng tuyển</Link>
-                        </Button>
+                          <Button
+                            asChild
+                            className="w-full bg-blue-600 hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg"
+                          >
+                            <Link to="/register">Ứng tuyển ngay</Link>
+                          </Button>
+                        </motion.div>
                       </div>
                     </motion.div>
                   ))}
@@ -217,6 +240,20 @@ export default function RecruitmentPage() {
                           <p className="text-muted-foreground mb-2">
                             {job.description}
                           </p>
+                          <div className="border-t border-blue-100 my-2 pt-2">
+                            <h4 className="text-xs font-semibold text-blue-600 mb-1">
+                              Yêu cầu chính:
+                            </h4>
+                            <p className="text-xs text-gray-600 mb-1">
+                              Tối thiểu 2 năm kinh nghiệm, kỹ năng giao tiếp tốt
+                            </p>
+                            <h4 className="text-xs font-semibold text-blue-600 mb-1">
+                              Quyền lợi:
+                            </h4>
+                            <p className="text-xs text-gray-600">
+                              Lương thưởng cạnh tranh, chế độ bảo hiểm đầy đủ
+                            </p>
+                          </div>
                           <div className="flex flex-wrap gap-3 text-sm text-gray-600">
                             <div className="flex items-center">
                               <MapPin
@@ -242,7 +279,7 @@ export default function RecruitmentPage() {
                             asChild
                             className="bg-blue-600 hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg"
                           >
-                            <Link to={`/apply/${job.id}`}>Ứng tuyển</Link>
+                            <Link to="/register">Ứng tuyển ngay</Link>
                           </Button>
                         </motion.div>
                       </div>

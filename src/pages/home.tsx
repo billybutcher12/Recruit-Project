@@ -75,6 +75,89 @@ export default function HomePage() {
       </div>
 
       <div className="container mx-auto px-4 py-16">
+        {/* Company Promotion Section */}
+        <motion.div
+          className="mb-16 bg-white rounded-xl shadow-lg overflow-hidden"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+            <motion.div
+              className="p-8 flex flex-col justify-center"
+              initial={{ x: -50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+            >
+              <motion.h2
+                className="text-3xl font-bold mb-4 text-blue-700"
+                initial={{ y: -20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+              >
+                Về XYZ Corp
+              </motion.h2>
+              <motion.p
+                className="text-gray-600 mb-6"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.7, duration: 0.5 }}
+              >
+                Thành lập từ năm 2010, XYZ Corp đã trở thành một trong những
+                công ty hàng đầu trong lĩnh vực công nghệ tại Việt Nam. Chúng
+                tôi tự hào về đội ngũ nhân viên tài năng và văn hóa làm việc đề
+                cao sự sáng tạo và đổi mới.
+              </motion.p>
+              <motion.div
+                className="grid grid-cols-2 gap-4 mb-6"
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.9, duration: 0.5 }}
+              >
+                <div className="bg-blue-50 p-4 rounded-lg text-center">
+                  <div className="text-3xl font-bold text-blue-600 mb-2">
+                    500+
+                  </div>
+                  <div className="text-sm text-gray-600">Nhân viên</div>
+                </div>
+                <div className="bg-blue-50 p-4 rounded-lg text-center">
+                  <div className="text-3xl font-bold text-blue-600 mb-2">
+                    15+
+                  </div>
+                  <div className="text-sm text-gray-600">Năm kinh nghiệm</div>
+                </div>
+              </motion.div>
+            </motion.div>
+            <motion.div
+              className="relative h-[400px] overflow-hidden"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
+                alt="Company team"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent flex items-end">
+                <div className="p-6 text-white">
+                  <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ delay: 1.1, duration: 0.5 }}
+                  >
+                    <div className="text-xl font-semibold mb-1">
+                      Đội ngũ chuyên nghiệp
+                    </div>
+                    <div className="text-sm opacity-90">
+                      Cùng nhau xây dựng tương lai
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
         {/* Why Choose Us Section */}
         <motion.div
           className="max-w-3xl mx-auto text-center mb-16"
@@ -155,12 +238,40 @@ export default function HomePage() {
         </motion.div>
 
         <motion.div
-          className="py-16 bg-blue-600 rounded-xl shadow-xl mb-16"
+          className="py-16 bg-blue-600 rounded-xl shadow-xl mb-16 overflow-hidden relative"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.5 }}
         >
-          <div className="text-center px-4">
+          {/* Animated background elements */}
+          <motion.div
+            className="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full opacity-30"
+            animate={{
+              x: [0, 30, 0],
+              y: [0, -30, 0],
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 8,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.div
+            className="absolute bottom-0 left-0 w-48 h-48 bg-blue-700 rounded-full opacity-20"
+            animate={{
+              x: [0, -20, 0],
+              y: [0, 20, 0],
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              repeat: Infinity,
+              duration: 6,
+              ease: "easeInOut",
+            }}
+          />
+
+          <div className="text-center px-4 relative z-10">
             <h2 className="text-3xl font-bold text-white mb-6">
               Sẵn sàng khám phá cơ hội mới?
             </h2>
@@ -168,15 +279,20 @@ export default function HomePage() {
               Tìm kiếm vị trí phù hợp với kỹ năng và đam mê của bạn trong danh
               sách việc làm đa dạng của chúng tôi.
             </p>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                asChild
-                size="lg"
-                className="bg-white text-blue-600 hover:bg-blue-50 transition-all duration-300 hover:translate-y-[-3px] shadow-lg hover:shadow-xl px-8 py-6 text-lg"
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <Link to="/recruitment">Khám phá việc làm</Link>
-              </Button>
-            </motion.div>
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-white text-blue-600 hover:bg-blue-50 transition-all duration-300 hover:translate-y-[-3px] shadow-lg hover:shadow-xl px-8 py-6 text-lg"
+                >
+                  <Link to="/recruitment">Khám phá việc làm</Link>
+                </Button>
+              </motion.div>
+            </div>
           </div>
         </motion.div>
       </div>
